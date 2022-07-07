@@ -1,0 +1,26 @@
+# reference link : https://medium.com/bb-tutorials-and-thoughts/angular-local-development-with-docker-compose-13719b998e42
+
+
+# Step-1
+# in package.json of the angular project, in the scripts object, replace "start":"ng serve" with "start":"ng serve --host=0.0.0.0 --port 4201"
+
+# Step-2
+# in root folder of your angular project, create a new file and name it "Dockerfile"
+
+
+# Step-3
+# Paste the following lines inside your dockerfile
+FROM node
+WORKDIR /usr/src/app/text-editor
+COPY package*.json ./
+RUN npm install -g @angular/cli @angular-devkit/build-angular && npm install
+EXPOSE 4201
+CMD ["npm", "start"]
+
+
+# Step-4
+# Build your image
+
+# Step-5
+# Run container using the image created
+# NOTE: mention flag -p as : "-p 4201:4201"
