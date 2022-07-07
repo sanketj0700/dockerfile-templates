@@ -11,7 +11,8 @@
 # Step-3
 # Paste the following lines inside your dockerfile
 FROM node
-WORKDIR /usr/src/app/text-editor
+# In the next line, replace "</path/to/working/directory/of/your/choice>" with actual path
+WORKDIR </path/to/working/directory/of/your/choice>
 COPY package*.json ./
 RUN npm install -g @angular/cli @angular-devkit/build-angular && npm install
 EXPOSE 4201
